@@ -24,7 +24,6 @@ const checkGameOver = function () {
 }
 
 const gameOver = function () {
-    console.log(`Player *** ${turn ? 'X' : 'O'} *** WON!`)
     messageLog.innerText = `Player ${turn ? 'X' : 'O'} won!`
 
 }
@@ -53,7 +52,7 @@ const play = function () {
     if (checkGameOver()) {
         gameOver();
     } else {
-        messageLog.innerText = `Player ${turn ? 'X' : 'O'} trun!`
+        messageLog.innerText = `Player ${turn ? 'O' : 'X'} trun!`
     }
 
 
