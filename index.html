@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +8,33 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
+
 <body>
-    <table class="gameBoard">
-        <tr>
-            <td class="cell" data-c="0" data-r="0"></td>
-            <td class="cell" data-c="1" data-r="0"></td>
-            <td class="cell" data-c="2" data-r="0"></td>
-        </tr>
-        <tr>
-            <td class="cell" data-c="0" data-r="1"></td>
-            <td class="cell" data-c="1" data-r="1"></td>
-            <td class="cell" data-c="2" data-r="1"></td>
-        </tr>
-        <tr>
-            <td class="cell" data-c="0" data-r="2"></td>
-            <td class="cell" data-c="1" data-r="2"></td>
-            <td class="cell" data-c="2" data-r="2"></td>
-        </tr>
-    </table>
+    <div class="game">
+        <table class="gameBoard">
+
+            <tr>
+                <td class="cell" data-c="0" data-r="0"></td>
+                <td class="cell" data-c="1" data-r="0"></td>
+                <td class="cell" data-c="2" data-r="0"></td>
+            </tr>
+            <tr>
+                <td class="cell" data-c="0" data-r="1"></td>
+                <td class="cell" data-c="1" data-r="1"></td>
+                <td class="cell" data-c="2" data-r="1"></td>
+            </tr>
+            <tr>
+                <td class="cell" data-c="0" data-r="2"></td>
+                <td class="cell" data-c="1" data-r="2"></td>
+                <td class="cell" data-c="2" data-r="2"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="messageLog">
+        Start Playing!
+    </div>
 
     <script src="js/game.js"></script>
 </body>
+
 </html>
