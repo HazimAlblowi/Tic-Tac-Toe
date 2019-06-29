@@ -24,8 +24,10 @@ const checkGameOver = function () {
 }
 
 const gameOver = function () {
-    messageLog.innerText = `Player ${turn ? 'X' : 'O'} won!`
-
+    messageLog.innerText = `Player ${turn ? 'X' : 'O'} won!`;
+    cells.forEach(cell => {
+        cell.removeEventListener('click', play);
+    });
 }
 
 
