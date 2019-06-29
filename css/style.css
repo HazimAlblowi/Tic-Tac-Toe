@@ -17,9 +17,23 @@ td {
     border: 2px dotted black;
     width: 166px;
     height: 28px;
-    margin: 0 auto;
+    margin: 5px auto;
     text-align: center;
-    margin-top: 10px;
     font-size: 22px;
     font-weight: bold;
+}
+
+.restartButton {
+    margin: 5px auto;
+    width: 166px;
+    height:  50px;
+    border: 2px solid black;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.restartButton:hover {
+    background: lightgreen;
+    cursor: pointer;
 }

@@ -1,9 +1,12 @@
 
 const cells = document.querySelectorAll('.cell');
 const messageLog = document.querySelector('.messageLog');
-const cellsArray = [[0, 1, 2],
+const restartButton = document.querySelector('.restartButton');
+
+let cellsArray = [[0, 1, 2],
 [3, 4, 5],
-[6, 7, 8]]
+[6, 7, 8]];
+
 let turn = true;
 let noOfTurns = 0;
 
@@ -23,7 +26,7 @@ const checkGameOver = function () {
         return true;
     }
 
-    if (noOfTurns === 9){
+    if (noOfTurns === 9) {
         messageLog.innerText = `TIE!`;
 
         return true;
@@ -38,6 +41,23 @@ const gameOver = function () {
     });
 }
 
+const restart = function () {
+
+    noOfTurns = 0;
+    cells.forEach(cell => {
+        cell.addEventListener('click', play);
+    });
+
+    messageLog.innerText = `Player ${turn ? 'O' : 'X'} trun!`
+
+    cellsArray = [[0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8]];
+
+    cells.forEach ( cell => {
+        cell.innerText = '';
+    })
+}
 
 const play = function () {
     const col = this.getAttribute('data-c');
@@ -71,3 +91,5 @@ const play = function () {
 cells.forEach(cell => {
     cell.addEventListener('click', play);
 });
+
+restartButton.addEventListener('click', restart);
