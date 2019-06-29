@@ -5,26 +5,34 @@ const cellsArray = [[0, 1, 2],
 [3, 4, 5],
 [6, 7, 8]]
 let turn = true;
+let noOfTurns = 0;
 
 const checkGameOver = function () {
     for (let i = 0; i < cellsArray.length; i++) {
 
         if ((cellsArray[i][0] == cellsArray[i][1] && cellsArray[i][1] == cellsArray[i][2]) ||
             (cellsArray[0][i] == cellsArray[1][i] && cellsArray[1][i] == cellsArray[2][i])) {
+            messageLog.innerText = `Player ${turn ? 'X' : 'O'} won!`;
             return true;
         }
     }
 
     if ((cellsArray[0][0] == cellsArray[1][1] && cellsArray[1][1] == cellsArray[2][2]) ||
         (cellsArray[0][2] == cellsArray[1][1] && cellsArray[1][1] == cellsArray[2][0])) {
+        messageLog.innerText = `Player ${turn ? 'X' : 'O'} won!`;
         return true;
     }
 
+    if (noOfTurns === 9){
+        messageLog.innerText = `TIE!`;
+
+        return true;
+    }
     return false;
 }
 
 const gameOver = function () {
-    messageLog.innerText = `Player ${turn ? 'X' : 'O'} won!`;
+
     cells.forEach(cell => {
         cell.removeEventListener('click', play);
     });
@@ -35,7 +43,7 @@ const play = function () {
     const col = this.getAttribute('data-c');
     const row = this.getAttribute('data-r');
 
-
+    noOfTurns++;
 
     if (turn) {
         this.innerText = 'O';
