@@ -11,30 +11,49 @@
 
 <body>
     <div class="game">
-        <table class="gameBoard">
+        <div class="row">
+            <div class="players">
+                <h2 class="name">-------</h2>
+                <h2 class="token">-----</h2>
+                <h2 class="color">-------</h2>
 
-            <tr>
-                <td class="cell" data-c="0" data-r="0"></td>
-                <td class="cell" data-c="1" data-r="0"></td>
-                <td class="cell" data-c="2" data-r="0"></td>
-            </tr>
-            <tr>
-                <td class="cell" data-c="0" data-r="1"></td>
-                <td class="cell" data-c="1" data-r="1"></td>
-                <td class="cell" data-c="2" data-r="1"></td>
-            </tr>
-            <tr>
-                <td class="cell" data-c="0" data-r="2"></td>
-                <td class="cell" data-c="1" data-r="2"></td>
-                <td class="cell" data-c="2" data-r="2"></td>
-            </tr>
-        </table>
-    </div>
-    <div class="messageLog">
-        Start Playing!
-    </div>
-    <div class="restartButton">Restart game</div>
+            </div>
+            <div>
+                <table class="gameBoard">
 
+                    <tr>
+                        <td class="cell" data-c="0" data-r="0"></td>
+                        <td class="cell" data-c="1" data-r="0"></td>
+                        <td class="cell" data-c="2" data-r="0"></td>
+                    </tr>
+                    <tr>
+                        <td class="cell" data-c="0" data-r="1"></td>
+                        <td class="cell" data-c="1" data-r="1"></td>
+                        <td class="cell" data-c="2" data-r="1"></td>
+                    </tr>
+                    <tr>
+                        <td class="cell" data-c="0" data-r="2"></td>
+                        <td class="cell" data-c="1" data-r="2"></td>
+                        <td class="cell" data-c="2" data-r="2"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="players">
+                <h2 class="name">-------</h2>
+                <h2 class="token">------</h2>
+                <h2 class="color">------</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+
+                <div class="messageLog">
+                    Start Playing!
+                </div>
+                <div class="restartButton">Restart game</div>
+            </div>
+        </div>
+    </div>
     <script src="js/game.js"></script>
 </body>
 

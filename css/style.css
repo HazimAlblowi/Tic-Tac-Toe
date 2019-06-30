@@ -3,7 +3,7 @@ body {
 }
 
 table {
-    margin: 0 auto;
+    margin-top: 30px;
     border-collapse: collapse;
 }
 
@@ -26,19 +26,33 @@ tr:last-of-type td {
     border-bottom:  none;
 }
 
+
+.game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+}
+
 .messageLog {
     border: 2px dotted black;
     width: 166px;
     height: 28px;
-    margin: 10px auto;
-    margin-top: 15px;
+    margin: 10px;
     text-align: center;
     font-size: 22px;
     font-weight: bold;
 }
 
 .restartButton {
-    margin: 5px auto;
+    margin:  10px;
     width: 166px;
     height:  50px;
     border: 2px solid black;
@@ -50,4 +64,22 @@ tr:last-of-type td {
 .restartButton:hover {
     background: lightgreen;
     cursor: pointer;
+}
+
+.players {
+    width: 150px;
+    height: 210px;
+    border: 3px solid black;
+    margin: 10px;
+    color: black;
+}
+
+.blue {
+    background: lightblue;
+    color: blue;
+}
+
+.green {
+    background: lightgreen;
+    color: green;
 }
