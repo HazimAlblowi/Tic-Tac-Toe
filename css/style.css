@@ -71,7 +71,6 @@ tr:last-of-type td {
     height: 210px;
     border: 3px solid black;
     margin: 10px;
-    color: black;
 }
 .name {
     width: 96%;
@@ -85,5 +84,5 @@ tr:last-of-type td {
 
 .green {
     background: lightgreen;
-    color: green;
+    color: darkgreen;
 }

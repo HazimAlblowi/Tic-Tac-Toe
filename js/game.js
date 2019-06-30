@@ -7,11 +7,11 @@ const playersInfo = document.querySelectorAll('.players');
 const players = [{
     name: 'Player 1',
     token: 'X',
-    color: 'green'
+    color: 'blue'
 }, {
     name: 'Player 2',
     token: 'O',
-    color: 'blue'
+    color: 'green'
 }]
 let cellsArray = [[0, 1, 2],
 [3, 4, 5],
@@ -25,6 +25,9 @@ let noOfTurns = 0;
 
 ////
 
+const playerInfoColorEvent = function (){
+    change 
+}
 
 const showResult = function (tie) {
     if (tie) {
@@ -70,7 +73,6 @@ const printInfo = function() {
 
         playersInfo[i].querySelector('.name').innerText = players[i].name;
         playersInfo[i].querySelector('.token').innerText = players[i].token;
-        playersInfo[i].querySelector('.color').innerText = players[i].color;
     }
     messageLog.innerText = ` ${turn ? players[0].name : players[1].name} trun!`
 }
@@ -136,7 +138,7 @@ const play = function () {
     }
     this.removeEventListener('click', play);
 
-
+    console.log(cellsArray);
 
     if (checkGameOver()) {
         gameOver();
@@ -153,7 +155,10 @@ const play = function () {
 const game = function () {
     playersInfo.forEach(info => {
         info.querySelector('.name').addEventListener('click', nameChangeEvent);
-        info.querySelector('.name').addEventListener('click', nameChangeEvent)
+        info.querySelector('select').addEventListener('change', function () {
+            this.parentElement.className = `players ${this.value}`;
+            
+        });
     })
     cells.forEach(cell => {
         cell.addEventListener('click', play);

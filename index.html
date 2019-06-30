@@ -12,11 +12,14 @@
 <body>
     <div class="game">
         <div class="row">
-            <div class="players">
+            <div class="players blue">
                 <h2 data-editable class="name" data-player='0'>-------</h2>
                 <h2 class="token">-----</h2>
-                <h2 class="color">-------</h2>
-
+                <p class="color">Color:</p>
+                <select name="color" >
+                        <option value='blue'>Blue</option>
+                        <option value="green">Green</option>
+                    </select>
             </div>
             <div>
                 <table class="gameBoard">
@@ -38,10 +41,15 @@
                     </tr>
                 </table>
             </div>
-            <div class="players">
+            <div class="players green">
                 <h2 class="name" data-player='1'>-------</h2>
                 <h2 class="token">------</h2>
-                <h2 class="color">------</h2>
+                <p class="color">Color:</p>
+                <select name="color" >
+                        <option value="green">Green</option>
+                        <option value='blue'>Blue</option>
+                    </select>
+              
             </div>
         </div>
         <div class="row">
