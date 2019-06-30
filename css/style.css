@@ -73,7 +73,11 @@ tr:last-of-type td {
     margin: 10px;
     color: black;
 }
-
+.name {
+    width: 96%;
+    height: 27px;
+    margin-top: 10px;
+}
 .blue {
     background: lightblue;
     color: blue;

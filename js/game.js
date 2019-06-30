@@ -4,15 +4,14 @@ const messageLog = document.querySelector('.messageLog');
 const restartButton = document.querySelector('.restartButton');
 const playersInfo = document.querySelectorAll('.players');
 
-
 const players = [{
     name: 'Player 1',
     token: 'X',
-    color: 'black'
+    color: 'green'
 }, {
     name: 'Player 2',
     token: 'O',
-    color: 'black'
+    color: 'blue'
 }]
 let cellsArray = [[0, 1, 2],
 [3, 4, 5],
@@ -21,6 +20,12 @@ let cellsArray = [[0, 1, 2],
 let turn = true;
 let noOfTurns = 0;
 
+
+
+
+////
+
+
 const showResult = function (tie) {
     if (tie) {
         messageLog.innerText = `TIE!`;
@@ -28,6 +33,8 @@ const showResult = function (tie) {
         messageLog.innerText = `${turn ? players[1].name : players[0].name} won!`;
     }
 }
+
+
 
 const checkGameOver = function () {
     for (let i = 0; i < cellsArray.length; i++) {
@@ -58,7 +65,15 @@ const gameOver = function () {
         cell.removeEventListener('click', play);
     });
 }
+const printInfo = function() {
+    for (let i = 0; i < playersInfo.length; i++) {
 
+        playersInfo[i].querySelector('.name').innerText = players[i].name;
+        playersInfo[i].querySelector('.token').innerText = players[i].token;
+        playersInfo[i].querySelector('.color').innerText = players[i].color;
+    }
+    messageLog.innerText = ` ${turn ? players[0].name : players[1].name} trun!`
+}
 const restart = function () {
 
     noOfTurns = 0;
@@ -76,14 +91,31 @@ const restart = function () {
         cell.innerText = '';
     })
 
-    for (let i = 0; i < playersInfo.length; i++) {
+    printInfo();
+}
 
-        playersInfo[i].querySelector('.name').innerText = players[i].name;
-        playersInfo[i].querySelector('.token').innerText = players[i].token;
-        playersInfo[i].querySelector('.color').innerText = players[i].color;
+const nameChangeEvent = function () {
+    const name = this;
+    const input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('maxlength', '8');
+    input.className = 'name';
+    input.value = this.innerText;
+    this.replaceWith(input);
+    input.focus();
+
+    const save = function () {
+        if (input.value) {
+            input.removeEventListener('blur', save)
+            name.innerText = input.value;
+            players[name.getAttribute('data-player')].name = input.value;
+            input.replaceWith(name);
+            printInfo();
+        }
+
 
     }
-
+    input.addEventListener('blur', save);
 }
 
 const play = function () {
@@ -109,14 +141,28 @@ const play = function () {
     if (checkGameOver()) {
         gameOver();
     } else {
-        messageLog.innerText = ` ${turn ? players[0].name : players[1].name} trun!`
+        printInfo();
     }
 
 
 }
+// ------------------------
 
-cells.forEach(cell => {
-    cell.addEventListener('click', play);
-});
 
-restartButton.addEventListener('click', restart);
+
+const game = function () {
+    playersInfo.forEach(info => {
+        info.querySelector('.name').addEventListener('click', nameChangeEvent);
+        info.querySelector('.name').addEventListener('click', nameChangeEvent)
+    })
+    cells.forEach(cell => {
+        cell.addEventListener('click', play);
+    });
+    
+    restartButton.addEventListener('click', restart);
+
+    restart();
+}
+
+
+game ();
