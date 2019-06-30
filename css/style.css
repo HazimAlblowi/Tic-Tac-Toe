@@ -4,20 +4,34 @@ body {
 
 table {
     margin: 0 auto;
+    border-collapse: collapse;
 }
+
+
 td {
     width: 50px;
     height: 50PX;
-    border: 1px solid black;
+    margin: 0;
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
     text-align: center;
     
+}
+
+td:last-child {
+    border-right: none;
+}
+
+tr:last-of-type td {
+    border-bottom:  none;
 }
 
 .messageLog {
     border: 2px dotted black;
     width: 166px;
     height: 28px;
-    margin: 5px auto;
+    margin: 10px auto;
+    margin-top: 15px;
     text-align: center;
     font-size: 22px;
     font-weight: bold;

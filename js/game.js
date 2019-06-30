@@ -13,8 +13,8 @@ let noOfTurns = 0;
 const checkGameOver = function () {
     for (let i = 0; i < cellsArray.length; i++) {
 
-        if ((cellsArray[i][0] == cellsArray[i][1] && cellsArray[i][1] == cellsArray[i][2]) ||
-            (cellsArray[0][i] == cellsArray[1][i] && cellsArray[1][i] == cellsArray[2][i])) {
+        if ((cellsArray[i][0] === cellsArray[i][1] && cellsArray[i][1] === cellsArray[i][2]) ||
+            (cellsArray[0][i] === cellsArray[1][i] && cellsArray[1][i] === cellsArray[2][i])) {
             messageLog.innerText = `Player ${turn ? 'X' : 'O'} won!`;
             return true;
         }
