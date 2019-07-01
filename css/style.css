@@ -18,13 +18,6 @@ body {
     letter-spacing: 1px;
 }
 
-footer {
-    width: 500px;
-    margin: 0 auto;
-    margin-top: 10px;
-    border-top: solid black 1px;
-    font-weight: 600;
-}
 
 
 .game {
@@ -174,8 +167,8 @@ tr:last-of-type td {
     right: 55px;
     bottom: 450px;
     border: 2px solid black;
-    border-radius: 10px;
-    background:  rgb(12, 160, 56);
+    border-radius: 1px;
+    background:  rgb(199, 98, 15);
     color: white;
     height: 28px;
     width: 300px;
@@ -199,13 +192,11 @@ tr:last-of-type td {
     display: none;
 }
 
-.blue {
-    /* background: lightblue;
-    color: blue; */
-}
 
-.green {
-    /* background: lightgreen;
-    color: darkgreen; */
+footer {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-top: solid black 1px;
+    font-weight: 600;
 }
-

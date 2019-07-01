@@ -4,15 +4,14 @@ const messageLog = document.querySelector('.messageLog');
 const playersInfo = document.querySelectorAll('.players');
 const gameBoard = document.querySelector('.gameBoard');
 const restartButton = document.createElement('div');
+const showWinner = document.createElement('div');
 const players = [{
     name: 'Player 1',
     token: 'X',
-    color: 'blue',
     wins: 0
 }, {
     name: 'Player 2',
     token: 'O',
-    color: 'green',
     wins: 0
 }]
 let cellsArray = [[0, 1, 2],
@@ -71,6 +70,8 @@ const gameOver = function () {
         cell.removeEventListener('click', play);
     });
     gameBoard.className = 'gameBoard blur';
+    showWinner.innerText = `${turn ? players[1].name: players[0].name} WON!`
+    gameBoard.parentElement.appendChild(showWinner);
     gameBoard.parentElement.appendChild(restartButton);
 
 }
@@ -109,6 +110,7 @@ const restart = function () {
     cells.forEach(cell => {
         cell.innerText = '';
     })
+    showWinner.remove();
     restartButton.remove();
     gameBoard.className = 'gameBoard';
 
@@ -168,15 +170,9 @@ const play = function () {
 }
 // ------------------------
 
-
-
 const game = function () {
     playersInfo.forEach(info => {
         info.querySelector('.name').addEventListener('click', nameChangeEvent);
-        info.querySelector('select').addEventListener('change', function () {
-            this.parentElement.className = `players ${this.value}`;
-
-        });
     })
     cells.forEach(cell => {
         cell.addEventListener('click', play);
@@ -185,6 +181,7 @@ const game = function () {
     restartButton.className = 'restartButton';
     restartButton.innerText = 'Play again!'
     restartButton.addEventListener('click', restart);
+    showWinner.className = 'winner';
     restart();
 }
 
