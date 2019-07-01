@@ -5,6 +5,7 @@ const playersInfo = document.querySelectorAll('.players');
 const gameBoard = document.querySelector('.gameBoard');
 const restartButton = document.createElement('div');
 const showWinner = document.createElement('div');
+const resetButton = document.querySelector('.resetButton');
 const players = [{
     name: 'Player 1',
     token: 'X',
@@ -177,7 +178,10 @@ const game = function () {
     cells.forEach(cell => {
         cell.addEventListener('click', play);
     });
-
+    players.forEach(player =>{
+        player.wins = 0;
+    })
+    resetButton.addEventListener('click', game);
     restartButton.className = 'restartButton';
     restartButton.innerText = 'Play again!'
     restartButton.addEventListener('click', restart);

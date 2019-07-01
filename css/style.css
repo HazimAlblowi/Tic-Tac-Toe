@@ -185,6 +185,24 @@ tr:last-of-type td {
     cursor: pointer;
 }
 
+.resetButton {
+    border: 2px solid black;
+    border-radius: 10px;
+    background:  rgb(81, 16, 165);
+    color: white;
+    height: 28px;
+    margin: 10px auto;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 300;    
+    width: 166px;
+}
+
+.resetButton:hover {
+    cursor: pointer;
+    background:  rgb(45, 9, 94);
+}
+
 .color {
     display: none;
 }
