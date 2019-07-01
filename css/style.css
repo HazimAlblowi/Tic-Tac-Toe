@@ -1,19 +1,50 @@
 body {
     text-align: center;
+    margin: 0;
+    font-family: Raleway;
+}
+header {
+ 
+
+}
+.logo {
+    margin: 10px auto;
+    width: 500px;
+    background-color: rgb(17, 49, 117);
+    color: white;
+    padding: 10px;
+    border-radius:  20px;
+}
+
+footer {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-top: solid black 1px;
+    font-weight: 600;
+}
+h1 {
+    font-size: 36px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 table {
-    margin-top: 30px;
+    width: 500px;
+    height: 500px;
+    margin: 30px auto;
     border-collapse: collapse;
 }
 
 
 td {
-    width: 50px;
-    height: 50PX;
+    width: 33.33%;
     margin: 0;
-    border-right: 3px solid black;
-    border-bottom: 3px solid black;
+    border-right: 5px solid black;
+    border-bottom: 5px solid black;
+
+
     text-align: center;
     
 }
@@ -28,6 +59,9 @@ tr:last-of-type td {
 
 
 .game {
+    min-width: 500px;
+    width: 50%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -67,6 +101,7 @@ tr:last-of-type td {
 }
 
 .players {
+    display: none;
     width: 150px;
     height: 210px;
     border: 3px solid black;
@@ -76,6 +111,8 @@ tr:last-of-type td {
     width: 96%;
     height: 27px;
     margin-top: 10px;
+    font-weight: 900;
+    color: rgb(17, 49, 117);
 }
 .blue {
     background: lightblue;
@@ -85,4 +122,11 @@ tr:last-of-type td {
 .green {
     background: lightgreen;
     color: darkgreen;
+}
+
+@media screen and (max-width: 800px) {
+    .row {
+        flex-direction: column;
+        text-align: center;
+    }
 }
