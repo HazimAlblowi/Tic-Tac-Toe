@@ -11,65 +11,70 @@
 </head>
 
 <body>
-        <header>
-            <h1 class="logo">Tic Tac Toe</h1>
-        </header>
+        
+
+    <header>
+        <h1 class="logo">Tic Tac Toe</h1>
+    </header>
     <div class="game">
-
-        <div class="row">
-            <div class="players blue">
-                <h2 data-editable class="name" data-player='0'>-------</h2>
-                <h2 class="token">-----</h2>
-                <p class="color">Color:</p>
-                <select name="color" >
-                        <option value='blue'>Blue</option>
-                        <option value="green">Green</option>
-                    </select>
-            </div>
-            <div>
-                <table class="gameBoard">
-
-                    <tr>
-                        <td class="cell" data-c="0" data-r="0"></td>
-                        <td class="cell" data-c="1" data-r="0"></td>
-                        <td class="cell" data-c="2" data-r="0"></td>
-                    </tr>
-                    <tr>
-                        <td class="cell" data-c="0" data-r="1"></td>
-                        <td class="cell" data-c="1" data-r="1"></td>
-                        <td class="cell" data-c="2" data-r="1"></td>
-                    </tr>
-                    <tr>
-                        <td class="cell" data-c="0" data-r="2"></td>
-                        <td class="cell" data-c="1" data-r="2"></td>
-                        <td class="cell" data-c="2" data-r="2"></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="players green">
-                <h2 class="name" data-player='1'>-------</h2>
-                <h2 class="token">------</h2>
-                <p class="color">Color:</p>
-                <select name="color" >
-                        <option value="green">Green</option>
-                        <option value='blue'>Blue</option>
-                    </select>
-              
-            </div>
+        <div class="winner">AAAAAAAAAAAA</div>
+        <div class="gameBoard">
+            <table>
+                <tr>
+                    <td class="cell" data-c="0" data-r="0"></td>
+                    <td class="cell" data-c="1" data-r="0"></td>
+                    <td class="cell" data-c="2" data-r="0"></td>
+                </tr>
+                <tr>
+                    <td class="cell" data-c="0" data-r="1"></td>
+                    <td class="cell" data-c="1" data-r="1"></td>
+                    <td class="cell" data-c="2" data-r="1"></td>
+                </tr>
+                <tr>
+                    <td class="cell" data-c="0" data-r="2"></td>
+                    <td class="cell" data-c="1" data-r="2"></td>
+                    <td class="cell" data-c="2" data-r="2"></td>
+                </tr>
+            </table>
         </div>
-        <div class="row">
-            <div>
 
-                <div class="messageLog">
-                    Start Playing!
+        <div class="status">
+            <div class="messageLog">
+            </div>
+
+
+            <div class="playerStats">
+                <div class="players blue">
+                    <h2 data-editable class="name" data-player='0'>-------</h2>
+                    <h2 class="score">Wins: 0</h2>
+                    <h2 class="token picked">-----</h2>
+                    <h2 class="token">O</h2>
+                    <p class="color">Color:</p>
+                    <select name="color"  class="colorO">
+                        <option value='blue'>Blue</option>
+                        <option value="green">Green</option>
+                    </select>
                 </div>
-                <div class="restartButton">Restart game</div>
+
+                <div class="players green">
+                    <h2 class="name" data-player='1'>-------</h2>
+                    <h2 class="score">Wins: 0</h2>
+                    <h2 class="token picked">------</h2>
+                    <h2 class="token">X</h2>
+                    <p class="color">Color:</p>
+                    <select name="color" class="colorO">
+                        <option value="green">Green</option>
+                        <option value='blue'>Blue</option>
+                    </select>
+                </div>
             </div>
         </div>
     </div>
 
+
     <footer>
-        <p>Created by <spane class="name">Hazim</spane> </p>
+        <p>Created by <spane class="name">Hazim</spane>
+        </p>
     </footer>
     <script src="js/game.js"></script>
 </body>

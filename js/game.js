@@ -1,17 +1,19 @@
 
 const cells = document.querySelectorAll('.cell');
 const messageLog = document.querySelector('.messageLog');
-const restartButton = document.querySelector('.restartButton');
 const playersInfo = document.querySelectorAll('.players');
-
+const gameBoard = document.querySelector('.gameBoard');
+const restartButton = document.createElement('div');
 const players = [{
     name: 'Player 1',
     token: 'X',
-    color: 'blue'
+    color: 'blue',
+    wins: 0
 }, {
     name: 'Player 2',
     token: 'O',
-    color: 'green'
+    color: 'green',
+    wins: 0
 }]
 let cellsArray = [[0, 1, 2],
 [3, 4, 5],
@@ -25,15 +27,16 @@ let noOfTurns = 0;
 
 ////
 
-const playerInfoColorEvent = function (){
-    change 
-}
+
 
 const showResult = function (tie) {
     if (tie) {
         messageLog.innerText = `TIE!`;
     } else {
+        turn ? players[1].wins += 1 : players[0].wins += 1;
+        printInfo();
         messageLog.innerText = `${turn ? players[1].name : players[0].name} won!`;
+
     }
 }
 
@@ -67,14 +70,28 @@ const gameOver = function () {
     cells.forEach(cell => {
         cell.removeEventListener('click', play);
     });
+    gameBoard.className = 'gameBoard blur';
+    gameBoard.parentElement.appendChild(restartButton);
+
 }
-const printInfo = function() {
+const printInfo = function () {
     for (let i = 0; i < playersInfo.length; i++) {
 
         playersInfo[i].querySelector('.name').innerText = players[i].name;
+        playersInfo[i].querySelector(".score").innerText = `Wins: ${players[i].wins}`
         playersInfo[i].querySelector('.token').innerText = players[i].token;
     }
-    messageLog.innerText = ` ${turn ? players[0].name : players[1].name} trun!`
+    if (players[0].wins > players[1].wins) {
+        playersInfo[0].querySelector('.score').className = 'score winning';
+        playersInfo[1].querySelector('.score').className = 'score losing';
+    } else if (players[0].wins < players[1].wins) {
+        playersInfo[1].querySelector('.score').className = 'score winning';
+        playersInfo[0].querySelector('.score').className = 'score losing';
+    } else {
+        playersInfo[0].querySelector('.score').className = 'score';
+        playersInfo[1].querySelector('.score').className = 'score';
+    }
+    messageLog.innerText = ` ${turn ? players[0].name : players[1].name} turn!`
 }
 const restart = function () {
 
@@ -83,7 +100,7 @@ const restart = function () {
         cell.addEventListener('click', play);
     });
 
-    messageLog.innerText = `${turn ? players[0].name : players[1].name} trun!`
+    messageLog.innerText = `${turn ? players[0].name : players[1].name} turn!`
 
     cellsArray = [[0, 1, 2],
     [3, 4, 5],
@@ -92,6 +109,8 @@ const restart = function () {
     cells.forEach(cell => {
         cell.innerText = '';
     })
+    restartButton.remove();
+    gameBoard.className = 'gameBoard';
 
     printInfo();
 }
@@ -100,7 +119,8 @@ const nameChangeEvent = function () {
     const name = this;
     const input = document.createElement('input');
     input.setAttribute('type', 'text');
-    input.setAttribute('maxlength', '8');
+    input.setAttribute('maxlength', '12');
+    input.style.marginBottom = '10px';
     input.className = 'name';
     input.value = this.innerText;
     this.replaceWith(input);
@@ -138,8 +158,6 @@ const play = function () {
     }
     this.removeEventListener('click', play);
 
-    console.log(cellsArray);
-
     if (checkGameOver()) {
         gameOver();
     } else {
@@ -157,17 +175,18 @@ const game = function () {
         info.querySelector('.name').addEventListener('click', nameChangeEvent);
         info.querySelector('select').addEventListener('change', function () {
             this.parentElement.className = `players ${this.value}`;
-            
+
         });
     })
     cells.forEach(cell => {
         cell.addEventListener('click', play);
     });
-    
-    restartButton.addEventListener('click', restart);
 
+    restartButton.className = 'restartButton';
+    restartButton.innerText = 'Play again!'
+    restartButton.addEventListener('click', restart);
     restart();
 }
 
 
-game ();
+game();

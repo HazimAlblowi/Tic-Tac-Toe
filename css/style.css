@@ -1,12 +1,10 @@
 body {
     text-align: center;
-    margin: 0;
     font-family: Raleway;
+    margin: 0;
 }
-header {
- 
 
-}
+
 .logo {
     margin: 10px auto;
     width: 500px;
@@ -14,6 +12,10 @@ header {
     color: white;
     padding: 10px;
     border-radius:  20px;
+    font-size: 36px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 footer {
@@ -23,28 +25,47 @@ footer {
     border-top: solid black 1px;
     font-weight: 600;
 }
-h1 {
-    font-size: 36px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+
+
+.game {
+    position: relative;
+    width: 520px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: rgb(242, 242, 250);
+    border-radius: 20px;
+    
 }
 
+
+
 table {
+    
     width: 500px;
     height: 500px;
     margin: 30px auto;
     border-collapse: collapse;
+
 }
 
-
+.blur {
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+}
 td {
+    cursor: pointer;
     width: 33.33%;
+    height: 33.33%;
     margin: 0;
-    border-right: 5px solid black;
-    border-bottom: 5px solid black;
-
-
+    border-right: 5px solid;
+    border-bottom: 5px solid;
+    border-color: black;
     text-align: center;
     
 }
@@ -57,76 +78,134 @@ tr:last-of-type td {
     border-bottom:  none;
 }
 
-
-.game {
-    min-width: 500px;
-    width: 50%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.status {
+    border-top: solid  black 2px;
     text-align: center;
-}
-
-.row {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
 }
 
 .messageLog {
-    border: 2px dotted black;
-    width: 166px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background:  rgb(17, 49, 117);
+    color: white;
     height: 28px;
-    margin: 10px;
+    margin: 10px auto;
     text-align: center;
     font-size: 22px;
-    font-weight: bold;
+    font-weight: 300;    
 }
 
-.restartButton {
-    margin:  10px;
-    width: 166px;
-    height:  50px;
-    border: 2px solid black;
-    font-size: 22px;
-    font-weight: bold;
-    text-transform: uppercase;
+.playerStats {
+    display: flex;
+    justify-content:space-between;
 }
-
-.restartButton:hover {
-    background: lightgreen;
-    cursor: pointer;
-}
-
 .players {
-    display: none;
-    width: 150px;
-    height: 210px;
-    border: 3px solid black;
+    width: 200px;
     margin: 10px;
 }
 .name {
+    cursor: pointer;
     width: 96%;
     height: 27px;
     margin-top: 10px;
     font-weight: 900;
     color: rgb(17, 49, 117);
 }
+
+
+.score { 
+    cursor: pointer;
+    display: inline;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background: darkslategray;
+    color: white;}
+    
+.winning{
+    background: darkgreen;
+
+}
+ .losing {
+    background: darkred;
+
+ }
+
+.token {
+    
+    cursor: pointer;
+    display: inline;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background: darkred;
+    color: white;
+    display: none;
+    
+}
+
+
+.picked {
+    background: darkgreen;
+    color: white;
+
+}
+.restartButton {
+    z-index: 10;
+    position: absolute;
+    right: 175px;
+    bottom: 350px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background:  rgb(180, 161, 27);
+    color: white;
+    height: 28px;
+    margin: 10px auto;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 300;    
+    width: 166px;
+
+}
+
+.winner {
+    z-index: 10;
+    position: absolute;
+    right: 55px;
+    bottom: 450px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background:  rgb(12, 160, 56);
+    color: white;
+    height: 28px;
+    width: 300px;
+    margin: 10px auto;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 300;    
+    padding: 0px 50px;
+    text-transform: uppercase;
+}
+
+.restartButton:hover {
+    background: rgb(140, 161, 27); 
+    cursor: pointer;
+}
+
+.color {
+    display: none;
+}
+.colorO {
+    display: none;
+}
+
 .blue {
-    background: lightblue;
-    color: blue;
+    /* background: lightblue;
+    color: blue; */
 }
 
 .green {
-    background: lightgreen;
-    color: darkgreen;
+    /* background: lightgreen;
+    color: darkgreen; */
 }
 
-@media screen and (max-width: 800px) {
-    .row {
-        flex-direction: column;
-        text-align: center;
-    }
-}
