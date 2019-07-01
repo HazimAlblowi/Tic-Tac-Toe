@@ -148,7 +148,7 @@ const play = function () {
     const row = this.getAttribute('data-r');
 
     noOfTurns++;
-
+    this.className = 'cell';
     if (turn) {
         this.innerText = players[0].token;
         cellsArray[row][col] = 'X';
@@ -176,6 +176,7 @@ const game = function () {
         info.querySelector('.name').addEventListener('click', nameChangeEvent);
     })
     cells.forEach(cell => {
+        cell.className = 'cell hover';
         cell.addEventListener('click', play);
     });
     players.forEach(player =>{

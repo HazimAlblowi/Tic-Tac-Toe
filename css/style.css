@@ -52,7 +52,6 @@ table {
     filter: blur(10px);
 }
 td {
-    cursor: pointer;
     width: 33.33%;
     height: 33.33%;
     margin: 0;
@@ -69,6 +68,12 @@ td:last-child {
 
 tr:last-of-type td {
     border-bottom:  none;
+}
+
+.hover:hover {
+    cursor: pointer;
+    background: rgba(12, 7, 92, 0.3);
+
 }
 
 .status {
