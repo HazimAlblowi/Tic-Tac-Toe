@@ -69,9 +69,11 @@ const gameOver = function () {
 
     cells.forEach(cell => {
         cell.removeEventListener('click', play);
+        cell.className = 'cell';
     });
+    
     gameBoard.className = 'gameBoard blur';
-    showWinner.innerText = `${turn ? players[1].name: players[0].name} WON!`
+    showWinner.innerText = `${turn ? players[1].name : players[0].name} WON!`
     gameBoard.parentElement.appendChild(showWinner);
     gameBoard.parentElement.appendChild(restartButton);
 
@@ -111,6 +113,10 @@ const restart = function () {
     cells.forEach(cell => {
         cell.innerText = '';
     })
+    cells.forEach(cell => {
+        cell.className = 'cell hover';
+        cell.addEventListener('click', play);
+    });
     showWinner.remove();
     restartButton.remove();
     gameBoard.className = 'gameBoard';
@@ -179,7 +185,7 @@ const game = function () {
         cell.className = 'cell hover';
         cell.addEventListener('click', play);
     });
-    players.forEach(player =>{
+    players.forEach(player => {
         player.wins = 0;
     })
     resetButton.addEventListener('click', game);
