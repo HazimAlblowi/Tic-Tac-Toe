@@ -4,21 +4,18 @@ body {
     margin: 0;
 }
 
-
 .logo {
     margin: 10px auto;
     width: 500px;
     background-color: rgb(17, 49, 117);
     color: white;
     padding: 10px;
-    border-radius:  20px;
+    border-radius: 20px;
     font-size: 36px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
-
 
 .game {
     position: relative;
@@ -30,18 +27,13 @@ body {
     text-align: center;
     background: rgb(242, 242, 250);
     border-radius: 20px;
-    
 }
 
-
-
 table {
-    
     width: 500px;
     height: 500px;
     margin: 30px auto;
     border-collapse: collapse;
-
 }
 
 .blur {
@@ -51,6 +43,7 @@ table {
     -ms-filter: blur(10px);
     filter: blur(10px);
 }
+
 td {
     width: 33.33%;
     height: 33.33%;
@@ -59,7 +52,6 @@ td {
     border-bottom: 5px solid;
     border-color: black;
     text-align: center;
-    
 }
 
 td:last-child {
@@ -67,40 +59,41 @@ td:last-child {
 }
 
 tr:last-of-type td {
-    border-bottom:  none;
+    border-bottom: none;
 }
 
 .hover:hover {
     cursor: pointer;
     background: rgba(12, 7, 92, 0.3);
-
 }
 
 .status {
-    border-top: solid  black 2px;
+    border-top: solid black 2px;
     text-align: center;
 }
 
 .messageLog {
     border: 2px solid black;
     border-radius: 10px;
-    background:  rgb(17, 49, 117);
+    background: rgb(17, 49, 117);
     color: white;
     height: 28px;
     margin: 10px auto;
     text-align: center;
     font-size: 22px;
-    font-weight: 300;    
+    font-weight: 300;
 }
 
 .playerStats {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
 }
+
 .players {
     width: 200px;
     margin: 10px;
 }
+
 .name {
     cursor: pointer;
     width: 96%;
@@ -110,44 +103,36 @@ tr:last-of-type td {
     color: rgb(17, 49, 117);
 }
 
+.token {
+    display: inline-block;
+    margin: 0;
+    border: 1px black solid;
+    width: 50px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background: rgb(75, 16, 238);
+    color: white;
+}
 
-.score { 
+.score {
     cursor: pointer;
-    display: inline;
+    display: inline-block;
+    margin: 0;
     border: 1px black solid;
     border-radius: 10px;
     padding: 5px 10px;
     background: darkslategray;
-    color: white;}
-    
-.winning{
-    background: darkgreen;
-
-}
- .losing {
-    background: darkred;
-
- }
-
-.token {
-    
-    cursor: pointer;
-    display: inline;
-    border: 1px black solid;
-    border-radius: 10px;
-    padding: 5px 10px;
-    background: darkred;
     color: white;
-    display: none;
-    
 }
 
-
-.picked {
+.winning {
     background: darkgreen;
-    color: white;
-
 }
+
+.losing {
+    background: darkred;
+}
+
 .restartButton {
     z-index: 10;
     position: absolute;
@@ -155,15 +140,14 @@ tr:last-of-type td {
     bottom: 350px;
     border: 2px solid black;
     border-radius: 10px;
-    background:  rgb(180, 161, 27);
+    background: rgb(180, 161, 27);
     color: white;
     height: 28px;
     margin: 10px auto;
     text-align: center;
     font-size: 22px;
-    font-weight: 300;    
+    font-weight: 300;
     width: 166px;
-
 }
 
 .winner {
@@ -173,48 +157,48 @@ tr:last-of-type td {
     bottom: 450px;
     border: 2px solid black;
     border-radius: 1px;
-    background:  rgb(199, 98, 15);
+    background: rgb(199, 98, 15);
     color: white;
     height: 28px;
     width: 300px;
     margin: 10px auto;
     text-align: center;
     font-size: 22px;
-    font-weight: 300;    
+    font-weight: 300;
     padding: 0px 50px;
     text-transform: uppercase;
 }
 
 .restartButton:hover {
-    background: rgb(140, 161, 27); 
+    background: rgb(140, 161, 27);
     cursor: pointer;
 }
 
 .resetButton {
     border: 2px solid black;
     border-radius: 10px;
-    background:  rgb(81, 16, 165);
+    background: rgb(81, 16, 165);
     color: white;
     height: 28px;
     margin: 10px auto;
     text-align: center;
     font-size: 22px;
-    font-weight: 300;    
+    font-weight: 300;
     width: 166px;
 }
 
 .resetButton:hover {
     cursor: pointer;
-    background:  rgb(45, 9, 94);
+    background: rgb(45, 9, 94);
 }
 
 .color {
     display: none;
 }
+
 .colorO {
     display: none;
 }
-
 
 footer {
     width: 500px;
@@ -232,8 +216,7 @@ footer {
     stroke-dasharray: 500;
     stroke-dashoffset: 500;
     animation: draw 1.5s linear forwards;
-  
-} 
+}
 
 .cross {
     stroke: rgb(117, 11, 11);
@@ -242,9 +225,11 @@ footer {
     stroke-dashoffset: 500;
     animation: draw 1.5s linear forwards;
 }
+
 .cross:last-child {
     animation-delay: 0.3s;
 }
+
 @keyframes draw {
     to {
         stroke-dashoffset: 0;

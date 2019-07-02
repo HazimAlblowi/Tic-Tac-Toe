@@ -84,6 +84,8 @@ const printInfo = function () {
         playersInfo[i].querySelector('.name').innerText = players[i].name;
         playersInfo[i].querySelector(".score").innerText = `Wins: ${players[i].wins}`
         playersInfo[i].querySelector('.token').innerText = players[i].token;
+        playersInfo[i].querySelector('.token').style.background =
+            players[i].token =='X' ? `rgb(117, 11, 11)` : `rgb(26, 77, 33)`;
     }
     if (players[0].wins > players[1].wins) {
         playersInfo[0].querySelector('.score').className = 'score winning';
