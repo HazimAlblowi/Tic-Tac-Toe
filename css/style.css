@@ -223,3 +223,30 @@ footer {
     border-top: solid black 1px;
     font-weight: 600;
 }
+
+.circle {
+    z-index: 5;
+    fill: transparent;
+    stroke: rgb(26, 77, 33);
+    stroke-width: 10;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: draw 1.5s linear forwards;
+  
+} 
+
+.cross {
+    stroke: rgb(117, 11, 11);
+    stroke-width: 10;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: draw 1.5s linear forwards;
+}
+.cross:last-child {
+    animation-delay: 0.3s;
+}
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}

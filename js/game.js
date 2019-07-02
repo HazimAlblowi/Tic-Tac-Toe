@@ -3,16 +3,25 @@ const cells = document.querySelectorAll('.cell');
 const messageLog = document.querySelector('.messageLog');
 const playersInfo = document.querySelectorAll('.players');
 const gameBoard = document.querySelector('.gameBoard');
+const resetButton = document.querySelector('.resetButton');
 const restartButton = document.createElement('div');
 const showWinner = document.createElement('div');
-const resetButton = document.querySelector('.resetButton');
 const players = [{
     name: 'Player 1',
     token: 'X',
+    tokenImg: `
+        <svg height="100" width="100">
+            <line  class='cross' x1="25" y1="75" x2="75" y2="25"/>
+            <line  class='cross ' x1="25" y1="25" x2="75" y2="75"/>
+        </svg>`,
     wins: 0
 }, {
     name: 'Player 2',
     token: 'O',
+    tokenImg: `
+        <svg width="100" height="100">
+            <circle class="circle" cx="50" cy="50" r="30"/>
+        </svg>`,
     wins: 0
 }]
 let cellsArray = [[0, 1, 2],
@@ -21,13 +30,6 @@ let cellsArray = [[0, 1, 2],
 
 let turn = true;
 let noOfTurns = 0;
-
-
-
-
-////
-
-
 
 const showResult = function (tie) {
     if (tie) {
@@ -40,21 +42,19 @@ const showResult = function (tie) {
     }
 }
 
-
-
 const checkGameOver = function () {
     for (let i = 0; i < cellsArray.length; i++) {
 
         if ((cellsArray[i][0] === cellsArray[i][1] && cellsArray[i][1] === cellsArray[i][2]) ||
             (cellsArray[0][i] === cellsArray[1][i] && cellsArray[1][i] === cellsArray[2][i])) {
-            showResult();
+            showResult(false);
             return true;
         }
     }
 
     if ((cellsArray[0][0] == cellsArray[1][1] && cellsArray[1][1] == cellsArray[2][2]) ||
         (cellsArray[0][2] == cellsArray[1][1] && cellsArray[1][1] == cellsArray[2][0])) {
-        showResult();
+        showResult(false);
         return true;
     }
 
@@ -71,7 +71,7 @@ const gameOver = function () {
         cell.removeEventListener('click', play);
         cell.className = 'cell';
     });
-    
+
     gameBoard.className = 'gameBoard blur';
     showWinner.innerText = `${turn ? players[1].name : players[0].name} WON!`
     gameBoard.parentElement.appendChild(showWinner);
@@ -156,12 +156,12 @@ const play = function () {
     noOfTurns++;
     this.className = 'cell';
     if (turn) {
-        this.innerText = players[0].token;
+        this.innerHTML = players[0].tokenImg;
         cellsArray[row][col] = 'X';
         turn = false;
 
     } else {
-        this.innerText = players[1].token;
+        this.innerHTML = players[1].tokenImg;
         cellsArray[row][col] = 'O';
         turn = true;
     }
@@ -195,6 +195,5 @@ const game = function () {
     showWinner.className = 'winner';
     restart();
 }
-
 
 game();
