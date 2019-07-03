@@ -6,6 +6,12 @@ const gameBoard = document.querySelector('.gameBoard');
 const resetButton = document.querySelector('.resetButton');
 const restartButton = document.createElement('div');
 const showWinner = document.createElement('div');
+const winLine = document.createElement('svg');
+winLine.className = 'float';
+winLine.setAttribute('height', '100%');
+winLine.setAttribute('width', '100%');
+
+
 const players = [{
     name: 'Player 1',
     token: 'X',
@@ -30,23 +36,34 @@ let cellsArray = [[0, 1, 2],
 
 let turn = true;
 let noOfTurns = 0;
+let linePosition = [0, 0, 0, 0];
+
+const lineline = `  <svg class='float' height="100%" width="100%">
+<line  class='line' x1="25" y1="75" x2="75" y2="25"/>
+</svg>`
+
 
 const showResult = function (tie) {
     if (tie) {
         messageLog.innerText = `TIE!`;
+        showWinner.innerText = `tie!`
+
     } else {
         turn ? players[1].wins += 1 : players[0].wins += 1;
         printInfo();
         messageLog.innerText = `${turn ? players[1].name : players[0].name} won!`;
-
+        showWinner.innerText = `${turn ? players[1].name : players[0].name} WON!`
     }
 }
 
 const checkGameOver = function () {
     for (let i = 0; i < cellsArray.length; i++) {
 
-        if ((cellsArray[i][0] === cellsArray[i][1] && cellsArray[i][1] === cellsArray[i][2]) ||
-            (cellsArray[0][i] === cellsArray[1][i] && cellsArray[1][i] === cellsArray[2][i])) {
+        if (cellsArray[i][0] === cellsArray[i][1] && cellsArray[i][1] === cellsArray[i][2]) {
+            showResult(false);
+            return true;
+        }
+        if (cellsArray[0][i] === cellsArray[1][i] && cellsArray[1][i] === cellsArray[2][i]) {
             showResult(false);
             return true;
         }
@@ -72,8 +89,9 @@ const gameOver = function () {
         cell.className = 'cell';
     });
 
+    gameBoard.prepend(winLine);
     gameBoard.className = 'gameBoard blur';
-    showWinner.innerText = `${turn ? players[1].name : players[0].name} WON!`
+
     gameBoard.parentElement.appendChild(showWinner);
     gameBoard.parentElement.appendChild(restartButton);
 
@@ -85,7 +103,7 @@ const printInfo = function () {
         playersInfo[i].querySelector(".score").innerText = `Wins: ${players[i].wins}`
         playersInfo[i].querySelector('.token').innerText = players[i].token;
         playersInfo[i].querySelector('.token').style.background =
-            players[i].token =='X' ? `rgb(117, 11, 11)` : `rgb(26, 77, 33)`;
+            players[i].token == 'X' ? `rgb(117, 11, 11)` : `rgb(26, 77, 33)`;
     }
     if (players[0].wins > players[1].wins) {
         playersInfo[0].querySelector('.score').className = 'score winning';
