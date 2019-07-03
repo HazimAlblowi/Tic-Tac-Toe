@@ -38,7 +38,7 @@ let cellsArray = [[0, 1, 2],
 let turn = true;
 let noOfTurns = 0;
 let linePosition = [0, 0, 0, 0];
-
+let isTie = true;
 
 
 
@@ -60,6 +60,7 @@ const checkGameOver = function () {
 
         if (cellsArray[i][0] === cellsArray[i][1] && cellsArray[i][1] === cellsArray[i][2]) {
             showResult(false);
+            isTie = false;
             winLine.setAttribute('x1', lineCoordH[0]);
             winLine.setAttribute('y1', lineCoordH[1] + (i * 170));
             winLine.setAttribute('x2', lineCoordH[2]);
@@ -68,6 +69,7 @@ const checkGameOver = function () {
         }
         if (cellsArray[0][i] === cellsArray[1][i] && cellsArray[1][i] === cellsArray[2][i]) {
             showResult(false);
+            isTie = false;
             winLine.setAttribute('x1', lineCoordV[0] + (i * 165));
             winLine.setAttribute('y1', lineCoordV[1]);
             winLine.setAttribute('x2', lineCoordV[2] + (i * 165));
@@ -78,6 +80,7 @@ const checkGameOver = function () {
 
     if (cellsArray[0][0] == cellsArray[1][1] && cellsArray[1][1] == cellsArray[2][2]) {
         showResult(false);
+        isTie = false;
         winLine.setAttribute('x1', lineCoordD[0]);
         winLine.setAttribute('y1', lineCoordD[1]);
         winLine.setAttribute('x2', lineCoordD[2]);
@@ -87,6 +90,7 @@ const checkGameOver = function () {
 
     if (cellsArray[0][2] == cellsArray[1][1] && cellsArray[1][1] == cellsArray[2][0]) {
         showResult(false);
+        isTie = false;
         winLine.setAttribute('x1', lineCoordD[0]);
         winLine.setAttribute('y1', lineCoordD[3]);
         winLine.setAttribute('x2', lineCoordD[2]);
@@ -96,6 +100,7 @@ const checkGameOver = function () {
 
     if (noOfTurns === 9) {
         showResult(true);
+        isTie = true;
         return true;
     }
     return false;
@@ -108,12 +113,14 @@ const gameOver = function () {
         cell.className = 'cell';
     });
 
-    //wait for animatin end before drawing the line
-    setTimeout(function () {
-        lineSvg.style.display = 'initial';
-        lineSvg.append(winLine);
-        lineSvg.innerHTML = lineSvg.innerHTML;
-    }, 500)
+    if (!isTie) {
+        //wait for animatin end before drawing the line
+        setTimeout(function () {
+            lineSvg.style.display = 'initial';
+            lineSvg.append(winLine);
+            lineSvg.innerHTML = lineSvg.innerHTML;
+        }, 500)
+    }
 
 
     //wait for the animation for bluring and showing the result
@@ -148,6 +155,8 @@ const printInfo = function () {
 const restart = function () {
 
     noOfTurns = 0;
+    isTie = true;
+
     cells.forEach(cell => {
         cell.addEventListener('click', play);
     });
