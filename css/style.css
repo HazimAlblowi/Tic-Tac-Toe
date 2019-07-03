@@ -219,6 +219,7 @@ footer {
 }
 
 .cross {
+    z-index: 5;
     stroke: rgb(117, 11, 11);
     stroke-width: 10;
     stroke-dasharray: 500;
@@ -228,6 +229,24 @@ footer {
 
 .cross:last-child {
     animation-delay: 0.3s;
+}
+
+.line {
+    display: initial;
+    z-index: 11;
+    position: absolute;
+    stroke: rgb(17, 49, 117);
+    stroke-width: 10;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 1.5s linear forwards;
+}
+
+.float {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 @keyframes draw {

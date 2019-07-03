@@ -6,11 +6,12 @@ const gameBoard = document.querySelector('.gameBoard');
 const resetButton = document.querySelector('.resetButton');
 const restartButton = document.createElement('div');
 const showWinner = document.createElement('div');
-const winLine = document.createElement('svg');
-winLine.className = 'float';
-winLine.setAttribute('height', '100%');
-winLine.setAttribute('width', '100%');
-
+const lineSvg = document.querySelector('.float');
+const winLine = document.createElement('line');
+winLine.className = 'line';
+const lineCoordV = [95, 50, 95, 500];//165 between cols
+const lineCoordD = [25, 50, 490, 500];// reverse the 2nd and 4th value
+const lineCoordH = [30, 110, 490, 110];//160 between rows 
 
 const players = [{
     name: 'Player 1',
@@ -38,9 +39,7 @@ let turn = true;
 let noOfTurns = 0;
 let linePosition = [0, 0, 0, 0];
 
-const lineline = `  <svg class='float' height="100%" width="100%">
-<line  class='line' x1="25" y1="75" x2="75" y2="25"/>
-</svg>`
+
 
 
 const showResult = function (tie) {
@@ -61,17 +60,37 @@ const checkGameOver = function () {
 
         if (cellsArray[i][0] === cellsArray[i][1] && cellsArray[i][1] === cellsArray[i][2]) {
             showResult(false);
+            winLine.setAttribute('x1', lineCoordH[0]);
+            winLine.setAttribute('y1', lineCoordH[1] + (i * 170));
+            winLine.setAttribute('x2', lineCoordH[2]);
+            winLine.setAttribute('y2', lineCoordH[3] + (i * 170));
             return true;
         }
         if (cellsArray[0][i] === cellsArray[1][i] && cellsArray[1][i] === cellsArray[2][i]) {
             showResult(false);
+            winLine.setAttribute('x1', lineCoordV[0] + (i * 165));
+            winLine.setAttribute('y1', lineCoordV[1]);
+            winLine.setAttribute('x2', lineCoordV[2] + (i * 165));
+            winLine.setAttribute('y2', lineCoordV[3]);
             return true;
         }
     }
 
-    if ((cellsArray[0][0] == cellsArray[1][1] && cellsArray[1][1] == cellsArray[2][2]) ||
-        (cellsArray[0][2] == cellsArray[1][1] && cellsArray[1][1] == cellsArray[2][0])) {
+    if (cellsArray[0][0] == cellsArray[1][1] && cellsArray[1][1] == cellsArray[2][2]) {
         showResult(false);
+        winLine.setAttribute('x1', lineCoordD[0]);
+        winLine.setAttribute('y1', lineCoordD[1]);
+        winLine.setAttribute('x2', lineCoordD[2]);
+        winLine.setAttribute('y2', lineCoordD[3]);
+        return true;
+    }
+
+    if (cellsArray[0][2] == cellsArray[1][1] && cellsArray[1][1] == cellsArray[2][0]) {
+        showResult(false);
+        winLine.setAttribute('x1', lineCoordD[0]);
+        winLine.setAttribute('y1', lineCoordD[3]);
+        winLine.setAttribute('x2', lineCoordD[2]);
+        winLine.setAttribute('y2', lineCoordD[1]);
         return true;
     }
 
@@ -89,11 +108,20 @@ const gameOver = function () {
         cell.className = 'cell';
     });
 
-    gameBoard.prepend(winLine);
-    gameBoard.className = 'gameBoard blur';
+    //wait for animatin end before drawing the line
+    setTimeout(function () {
+        lineSvg.style.display = 'initial';
+        lineSvg.append(winLine);
+        lineSvg.innerHTML = lineSvg.innerHTML;
+    }, 500)
 
-    gameBoard.parentElement.appendChild(showWinner);
-    gameBoard.parentElement.appendChild(restartButton);
+
+    //wait for the animation for bluring and showing the result
+    setTimeout(function () {
+        gameBoard.className = 'gameBoard blur';
+        gameBoard.parentElement.appendChild(showWinner);
+        gameBoard.parentElement.appendChild(restartButton);
+    }, 2000)
 
 }
 const printInfo = function () {
@@ -140,6 +168,8 @@ const restart = function () {
     showWinner.remove();
     restartButton.remove();
     gameBoard.className = 'gameBoard';
+    lineSvg.innerHTML = '';
+    lineSvg.style.display = 'none';
 
     printInfo();
 }
