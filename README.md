@@ -4,9 +4,9 @@
 
 A web based tic tac toe game. 
 
-**[Link to the game](https://hazimalblowi.github.io/Tic-Tac-Toe/)**
-**[Link to the user stories](https://github.com/HazimAlblowi/project-1-prompt#user-stori)**
-**[Link to the wireframe](/images/wireframe.png)**
+- **[Link to the game](https://hazimalblowi.github.io/Tic-Tac-Toe/)**
+- **[Link to the user stories](https://github.com/HazimAlblowi/project-1-prompt#user-stori)**
+- **[Link to the wireframe](/images/wireframe.png)**
 
 ## Technologies/Frameworks Used:
 - **HTML**
