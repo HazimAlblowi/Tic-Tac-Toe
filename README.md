@@ -20,7 +20,7 @@ I started by drawing the frame work, then I went straight to the logic and build
 The only thing I had stuck on was a problem with the elements inside the SVG doesn't show up on screen, even though they are added in the DOM when I checked for them in the chrome inspect.
 The problem was solved using this line of code after appending the elements in SVG elements
 `lineSvg.innerHTML = lineSvg.innerHTML;`
-while looking at this code it looks like it will do nothing its somehow fixed the problem, and the drawing inside the SVG rendred in the page.
+while looking at this code it looks like it will do nothing  but it somehow fixed the problem, and the drawing inside the SVG rendred in the page.
 I tried to look for explaination in the web but my effort went fruitless.
 my only assume its that the line of code I wrote rerender the SVG on the page.
 
