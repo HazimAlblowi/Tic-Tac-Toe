@@ -24,7 +24,7 @@ while looking at this code it looks like it will do nothing  but it somehow fixe
 I tried to look for explaination in the web but my effort went fruitless.
 my only assume its that the line of code I wrote rerender the SVG on the page.
 
-## New Thing I Learned:
+## New Things I Learned:
 - Creating and animate SVG using only css.
 - Working with Google Firebase and link,write on and read from the live database.
 
