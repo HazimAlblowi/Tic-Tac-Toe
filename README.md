@@ -31,7 +31,7 @@ my only assume its that the line of code I wrote rerender the SVG on the page.
 ## Uncomplete features:
 - Build online mutilplayer using live database from using Google Firebase. (completed creating and searching for online rooms).
 
-## Features I would've added if Had more time:
+## Features I would've added if I Had more time:
 - AI opponent.
 - The Ability to change the style.
 - Add sounds effects.
